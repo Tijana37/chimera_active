@@ -1,0 +1,129 @@
+body {
+    display: flex;
+    font-family: 'Roboto', sans-serif;
+    flex-direction: column;
+    height: calc(100vh - 16px);
+}
+
+svg {
+    border: 1px solid #999;
+    width: 100%;
+    height: 100%;
+    min-height: 400px;
+}
+
+.node rect,
+.node circle,
+.node ellipse {
+    stroke: #333;
+    fill: #fff;
+    stroke-width: 1.5px;
+}
+
+.edgePath path.path {
+    stroke: #333;
+    stroke-width: 1.5px;
+    fill: none;
+}
+
+g.edgeLabel {
+    cursor: pointer;
+}
+
+#settings {
+    display: flex;
+}
+
+#settings > div {
+    width: 100%;
+    height: 55px;
+    text-align: center;
+}
+
+#sentences {
+    display: flex;
+    height: 100%;
+    overflow-y: auto;
+    margin-top: 10px;
+}
+
+#linearizations, #output, #scores {
+    overflow-x: auto;
+    white-space: nowrap;
+    resize: horizontal;
+}
+
+#scores {
+    line-height: 30px;
+    flex-shrink: 0;
+    padding: 0 10px;
+    overflow-x: scroll;
+}
+
+#sentences span.block {
+    border: 1px solid black;
+    display: inline-block;
+    padding: 1px 3px;
+    margin: 2px 0;
+    border-radius: 5px;
+    font-size: 14px;
+    line-height: initial;
+}
+
+#sentences span.block {
+    background: #eee;
+}
+
+#sentences span.block span.block {
+    background: #ddd;
+}
+
+#sentences span.block span.block span.block {
+    background: #ccc;
+}
+
+#sentences span.block span.block span.block span.block {
+    background: #bbb;
+}
+
+#sentences span.block span.block span.block span.block span.block {
+    background: #aaa;
+}
+
+#sentences span.block span.block span.block span.block span.block span.block {
+    background: #999;
+}
+
+#sentences span.block span.block span.block span.block span.block span.block span.block {
+    background: #888;
+}
+
+#sentences span.block span.block span.block span.block span.block span.block span.block span.block {
+    background: #777;
+}
+
+#sentences span.entity {
+    border: 1px solid black;
+    display: inline-block;
+    padding: 4px 6px;
+    margin: 2px 0;
+    border-radius: 5px;
+    font-size: 14px;
+    line-height: initial;
+}
+
+#output span.entity {
+    border: 0;
+    border-bottom: 2px solid;
+    /* font-weight: bold; */
+}
+
+#sentences span.strike {
+    opacity: 0.3;
+    text-decoration: line-through;
+}
+
+div.line > span.separator {
+    background: black;
+    margin: 0 5px;
+}

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Graph2Seq</title>
+
+    <script src="https://d3js.org/d3.v4.min.js" charset="utf-8"></script>
+    <script src="https://dagrejs.github.io/project/dagre-d3/latest/dagre-d3.js"></script>
+    <script src="main.js"></script>
+
+    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css"/>
+
+    <!-- Export as image -->
+    <!-- Required to convert named colors to RGB -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/canvg/1.4/rgbcolor.min.js"></script>
+    <!-- Optional if you want blur -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/stackblur-canvas/1.4.1/stackblur.min.js"></script>
+    <!-- Main canvg code -->
+    <script src="https://cdn.jsdelivr.net/npm/canvg/dist/browser/canvg.min.js"></script>
+</head>
+<body>
+
+<div id="settings">
+    <div>
+        <input type="checkbox" id="linearize_type"/>
+        <label for="linearize_type">Exhaustive linearization?</label>
+        <span id="precision"></span>
+
+        <br/>
+
+        <input type="checkbox" id="random_plans"/>
+        <label for="random_plans">Uniform subset</label>
+        <input type="range" id="random_plans_percent" min="1" max="100" value="25" onchange="document.getElementById('random_plans_percent_output').innerText=this.value"/>
+        <span id="random_plans_percent_output">25</span>
+    </div>
+    <div>
+        <button id="plan">Plan</button>
+    </div>
+    <div id="graphs-selector">
+        <select id="graph-select" placeholder="Select Graph"></select>
+    </div>
+    <div>
+        <label>Beam Size</label>
+        <input type="range" id="beam_size" min="1" max="50" value="5" onchange="document.getElementById('beam_size_output').innerText=this.value"/>
+        <span id="beam_size_output">5</span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <input type="checkbox" checked="checked" id="find_best"/>
+        <label for="find_best">Find Best</label>
+
+        <br />
+        <button id="translate" disabled>Translate</button>
+    </div>
+</div>
+
+<div id="graph">
+    <svg>
+        <g></g>
+    </svg>
+</div>
+
+<div id="sentences">
+    <div id="linearizations"></div>
+    <div id="scores"></div>
+    <div id="output"></div>
+</div>
+
+<!--<canvas id="canvas" width="100%"></canvas>-->
+
+</body>
+</html>
