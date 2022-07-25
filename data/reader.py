@@ -307,6 +307,7 @@ class DataReader:
             return new_text
 
         self.ents_reg_map = ents_reg_map
+        # print(self.data)
         self.data = [d.set_hyp(process(d.hyp, d.info["seen"])) for d in self.data]
         return self
 

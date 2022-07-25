@@ -101,6 +101,8 @@ class Pipeline:
         self.queue.append(QueueItem(key, name, method, ext, load_cache, load_self))
 
     def execute(self, run_name=None, tabs=0, x_params=None, previous_name=None, cache_name: str = None):
+
+
         # Every execution should refresh initial params
         params = CachedDict().union(self.initial_params) \
             if isinstance(self.initial_params, CachedDict) \
@@ -135,6 +137,9 @@ class Pipeline:
                 print(("  " * (tabs + 1)) + ("%-" + str(key_len) + "s %-" + str(name_len) + "s") % (qi.key, qi.name),
                       end=" ")
 
+                if run_name == 'train-reg':
+                    print("OUT reg")
+
             pn = path.join(previous_name, qi.key)
             pnf = pn + "." + qi.ext
 
@@ -144,6 +149,7 @@ class Pipeline:
                     params.load_cache(qi.key)
             else:
                 if isinstance(qi.method, Pipeline):
+
                     params[qi.key] = qi.method.execute(run_name=qi.name, tabs=tabs + 1,
                                                             x_params=x_params.union(params), previous_name=pn)
                     if isinstance(params[qi.key], CachedDict) and "out" in params[qi.key]:
@@ -151,6 +157,8 @@ class Pipeline:
                 else:
                     if self.mute:
                         Silencer.mute()
+                    #print("EEEEEEEE ",x_params['train-reg'])
+                    print(type(x_params["config"]))
                     params[qi.key] = qi.method(params, x_params)
                     if self.mute:
                         Silencer.unmute()

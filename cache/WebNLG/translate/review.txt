@@ -1,0 +1,43 @@
+ENT_ABILENE_REGIONAL_AIRPORT_ENT > city served [ ENT_ABILENE_COMMA__TEXAS_ENT ]
+ABILENE REGIONAL AIRPORT serves the city of ABILENE, TEXAS .
+---
+Abilene, Texas is served by the Abilene regional airport.
+Abilene Regional Airport serves the city of Abilene in Texas.
+
+ENT_ADOLFO_SUÁREZ_MADRID–BARAJAS_AIRPORT_ENT > location [ ENT_MADRID_COMMA__PARACUELLOS_DE_JARAMA_COMMA__SAN_SEBASTIÁN_DE_LOS_REYES_AND_ALCOBENDAS_ENT ]
+ADOLFO SUÁREZ MADRID–BARAJAS AIRPORT is located at MADRID, PARACUELLOS DE JARAMA, SAN SEBASTIÁN DE LOS REYES AND ALCOBENDAS .
+---
+Adolfo Suárez Madrid–Barajas Airport can be found in Madrid, Paracuellos de Jarama, San Sebastián de los Reyes and Alcobendas.
+Adolfo Suarez Madrid-Barajas airport is located at Madrid, Paracuellos de Jarama, San Sebastián de los Reyes and Alcobendas.
+Adolfo Suarez Madrid-Barajas Airport is located in Madrid, Paracuellos de Jarama, San Sebastian de los Reyes and Alcobendas.
+
+ENT_ADOLFO_SUÁREZ_MADRID–BARAJAS_AIRPORT_ENT > runway name [ ENT_18L_SLASH_36R_ENT ]
+the runway name of ADOLFO SUÁREZ MADRID–BARAJAS AIRPORT is 18L/36R .
+---
+The runway name of Adolfo Suárez Madrid–Barajas Airport is 18L/36R.
+The runway name at Adolfo Suarez Madrid-Barajas airport is 18L/36R.
+The runway name of Adolfo Suarez Madrid-Barajas Airport is 18L/36R.
+
+ENT_AFONSO_PENA_INTERNATIONAL_AIRPORT_ENT > icao location identifier [ ENT_SBCT_ENT ]
+the icao location identifier of AFONSO PENA INTERNATIONAL AIRPORT is SBCT .
+---
+Afonso Pena International Airport ICAO Location Idenitifier is SBCT.
+SBCT is the ICAO location identifier of Afonso Pena International Airport.
+
+ENT_AFONSO_PENA_INTERNATIONAL_AIRPORT_ENT > city served [ ENT_CURITIBA_ENT ]
+AFONSO PENA INTERNATIONAL AIRPORT serves the city of CURITIBA .
+---
+Afonso Pena International Airport serves the city of Curitiba.
+Afonso Pena International Airport serves Curitiba.
+
+ENT_AL_DASH_TAQADDUM_AIR_BASE_ENT > city served [ ENT_FALLUJAH_ENT ]
+AL-TAQADDUM AIR BASE serves the city of FALLUJAH .
+---
+The Al Taqaddum Air Base serves the city of Fallujah.
+Al-Taqaddum Air Base serves the city of Fallujah.
+
+ENT_AL_DASH_TAQADDUM_AIR_BASE_ENT > runway length [ ENT_3684_DOT_0_ENT ]
+the runway length of AL-TAQADDUM AIR BASE is 3684 .
+---
+The runway length of Al-Taqaddum Air Base is 3684.0.
+The length of the runway at Al-Taqaddum Air Base is 3684.0.

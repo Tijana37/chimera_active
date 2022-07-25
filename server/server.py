@@ -18,22 +18,25 @@ from scorer.splitting_tendencies import SplittingTendenciesExpert
 from utils.delex import concat_entity
 from utils.graph import Graph
 from data.WebNLG.reader import WebNLGDataReader
+from reg.naive import NaiveREG
 
 naive_planner = NaivePlanner(WeightedProductOfExperts([
-        RelationDirectionExpert,
-        GlobalDirectionExpert,
-        SplittingTendenciesExpert,
-        RelationTransitionsExpert
-    ]))
+    RelationDirectionExpert,
+    GlobalDirectionExpert,
+    SplittingTendenciesExpert,
+    RelationTransitionsExpert
+]))
 
 server_config = {
     "port": 5001,
     "reader": WebNLGDataReader,
-    "planner": naive_planner
+    "planner": naive_planner,
+    "reg": NaiveREG,
 }
 
 dataset_name = server_config["reader"].DATASET
-main_config = Config(reader=server_config["reader"], planner=server_config["planner"])
+# print("added reg=server_config["reg"])")
+main_config = Config(reader=server_config["reader"], planner=server_config["planner"], reg=server_config["reg"])
 
 base_path = os.path.dirname(os.path.abspath(__file__))
 
@@ -63,7 +66,7 @@ def server(pipeline_res, host, port, debug=True):
         planner = pipeline_res["train-planner"]
 
         plans = [l.replace("  ", " ")
-                     for l in (graph.exhaustive_plan() if type == "full" else graph.plan_all()).linearizations()]
+                 for l in (graph.exhaustive_plan() if type == "full" else graph.plan_all()).linearizations()]
         scores = planner.scores([(graph, p) for p in plans])
 
         return jsonify({
