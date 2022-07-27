@@ -28,8 +28,9 @@ def BLEU(hyps, refs, single_ref=False, tokenizer=None, hyp_tokenizer=None, ref_t
         return [0, 0, 0, 0, 0]
 
     # Add execution permissions
-    os.popen("chmod +x " + base + "/multi-bleu.perl").read()
-
+    #chmod
+    os.popen(base + "/multi-bleu.perl").read()
+    print("after os.popen")
     if single_ref:
         refs = [[r] for r in refs]
 
@@ -64,9 +65,10 @@ def BLEU(hyps, refs, single_ref=False, tokenizer=None, hyp_tokenizer=None, ref_t
     if all(map(lambda s: s == "", hyps)):
         return [0, 0, 0, 0, 0]
 
-    cmd = base + "/multi-bleu.perl " + " ".join(ref_path) + " < " + hyp_path
-    print(cmd)
+    cmd = base + "\multi-bleu.perl " + " ".join(ref_path) + " < " + hyp_path
+    print("before second " , cmd)
     res = os.popen(cmd).read()
+    print("after second")
     # print res
     search = re.search(" (\d*[\.\d]*?), (\d*[\.\d]*?)\/(\d*[\.\d]*?)\/(\d*[\.\d]*?)\/(\d*[\.\d]*?) ", str(res))
     if search:

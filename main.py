@@ -41,7 +41,7 @@ MainPipeline.enqueue("train-model", "Train Model", TrainModelPipeline)
 MainPipeline.enqueue("test-corpus", "Pre-process test data", TestingPreProcessPipeline)
 MainPipeline.enqueue("train-reg", "Train Referring Expressions Generator", REGPipeline)
 MainPipeline.enqueue("translate", "Translate Test", TranslatePipeline)
-MainPipeline.enqueue("evaluate", "Evaluate Translations", EvaluationPipeline)
+#MainPipeline.enqueue("evaluate", "Evaluate Translations", EvaluationPipeline)
 
 if __name__ == "__main__":
     # naive_planner = NaivePlanner(WeightedProductOfExperts([

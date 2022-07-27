@@ -56,12 +56,14 @@ def server(pipeline_res, host, port, debug=True):
     def graphs():
         # data = [d.graph.as_rdf() for d in pipeline_res["pre-process"]["train"].data]
         data = [d.graph.as_rdf() for d in pipeline_res["test-corpus"].data]
+        print("aaaaaaaa",  jsonify(data))
         return jsonify(data)
 
     @app.route('/plans/<type>', methods=['POST'])
     @cross_origin()
     def plans(type):
         triplets = request.get_json(force=True)
+        print(triplets)
         graph = Graph(triplets)
         planner = pipeline_res["train-planner"]
 

@@ -1,7 +1,8 @@
 const COLORS = ["lightcoral", "lightgreen", "lightblue", "wheat", "plum", "pink", "silver", "lightsalmon"];
 
 const searchQuery = window.location.search.substr(1);
-const DEFAULT_GRAPH = searchQuery.substr(0, 5) === "graph" ? Number(searchQuery.substr(6)) : 500;
+//The 15 in the following row was 500
+const DEFAULT_GRAPH = searchQuery.substr(0, 5) === "graph" ? Number(searchQuery.substr(6)) : 15;
 
 String.prototype.replaceAll = function (search, replacement) {
     return this.replace(new RegExp(search, 'ig'), replacement);
@@ -36,7 +37,9 @@ function successors(g, node) {
     return [...new Set(suc.concat(suc.map(d => g.successors(d)).reduce((a, b) => a.concat(b), [])))]
 }
 
-const graphsFetch = fetch("graphs").then(res => res.json());
+const graphsFetch = fetch("graphs").then(res => {
+    return res.json();
+});
 
 class Visualizer {
     constructor() {
@@ -62,9 +65,12 @@ class Visualizer {
         this.findBestEl = document.querySelector("#find_best");
         this.beamSizeEl = document.querySelector("#beam_size");
 
+        console.log("eve kaj sme")
         this.initZoom();
         this.initSync();
+        console.log("eve kaj sme 2")
         this.initSettings();
+        console.log("eve kaj sme 3")
     }
 
     get linearizations() {
@@ -116,13 +122,13 @@ class Visualizer {
 
         graphsFetch.then(graphs => {
             this.graphs = graphs;
-
             const graphChange = e => {
                 console.log(e);
 
                 window.history.pushState(e.target.value, "Graph2Seq - " + e.target.value, "?graph=" + e.target.value);
-
+                console.log("ejj", this.graphs)
                 this.graph = graphs[Number(e.target.value)];
+                console.log(this.graph)
 
                 this.colorMap = {};
                 Array.from(new Set(this.graph.map(([s, l, o]) => [s, o]).reduce((a, b) => a.concat(b))))
